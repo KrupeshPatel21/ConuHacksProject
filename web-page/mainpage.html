@@ -1,46 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crime and Weather Data Visualization</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
 </head>
+
 <body>
 
-<div id="background-container">
-    <div id="weather-animation"></div>
-</div>
+    <video autoplay muted loop id="myVideo">
+        <source src="web-page\pexels_videos_3839 (Original).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-<div id="container">
-    <div id="filter-section">
-        <label for="crime-select">Select Crime:</label>
-        <select id="crime-select">
-            <option value="burglary">Burglary</option>
-            <option value="assault">Assault</option>
-            <option value="robbery">Robbery</option>
-            <!-- Add more crime options as needed -->
-        </select>
-
-        <label for="weather-select">Select Weather:</label>
-        <select id="weather-select">
-            <option value="sunny">Sunny</option>
-            <option value="rainy">Rainy</option>
-            <option value="cloudy">Cloudy</option>
-            <option value="snowy">Snowy</option>
-            <!-- Add more weather options as needed -->
-        </select>
-
-        <button onclick="updateChart()">Update Chart</button>
+    <div class="content">
+        <h1>Heading</h1>
+        <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis
+            neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine
+            molestiae, ad mutat oblique delicatissimi pro.</p>
+        <button id="myBtn" onclick="myFunction()">Pause</button>
     </div>
 
-    <div id="chart-container">
-        <!-- Your chart will be rendered here -->
-    </div>
-</div>
+    <script>
+        var video = document.getElementById("myVideo");
+        var btn = document.getElementById("myBtn");
 
-<!-- Link to your JavaScript file -->
-<script src="script.js"></script>
+        function myFunction() {
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = "Pause";
+            } else {
+                video.pause();
+                btn.innerHTML = "Play";
+            }
+        }
+    </script>
+
 </body>
+
 </html>
