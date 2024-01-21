@@ -1,12 +1,6 @@
-# import dash
-# from dash import dcc, html
-# from dash.dependencies import Input, Output
-# import plotly.express as px
-# import pandas as pd
-
-# # Load your datasets
-# crime_data = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\actes-criminels.csv", nrows=2141)  # Replace 'crime_data.csv' with the actual filename
-# weather_data = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\weatherstats_montreal_normal_daily.csv",nrows=31)  # Replace 'weather_data.csv' with the actual filename
+# This file is supposedly for implementing both datasets.
+# However, this script does not offer any functionality.
+# And can be used as a skeleton. 
 
 import dash
 from dash import dcc, html
@@ -15,12 +9,14 @@ import plotly.express as px
 import pandas as pd
 
 # Load your datasets
-dataset1 = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\actes-criminels.csv", nrows=2141)  # Replace 'dataset1.csv' with the actual filename
-dataset2 = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\weatherstats_montreal_normal_daily.csv",nrows=31)  # Replace 'dataset2.csv' with the actual filename
+dataset1 = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\actes-criminels.csv", nrows=2141) 
+dataset2 = pd.read_csv(r"C:\Users\chris\Downloads\ConuHacksProject\weatherstats_montreal_normal_daily.csv",nrows=31)  
 
 # Add a 'Dataset' column to identify the source dataset
 dataset1['Dataset'] = 'Dataset 1'
 dataset2['Dataset'] = 'Dataset 2'
+dataset2['Dataset'] = 'Dataset 3'
+
 
 # Combine both datasets
 combined_dataset = pd.concat([dataset1, dataset2], ignore_index=True)
@@ -28,7 +24,9 @@ combined_dataset = pd.concat([dataset1, dataset2], ignore_index=True)
 # Get unique categories, values, and dates from the combined dataset
 # Need to add each value such as "Light Snow", "Heavy Snow", etc.
 all_categories_dataset1 = dataset1['CATEGORIE'].unique()
-all_values_dataset2 = dataset2['Weather'].unique()
+all_values_dataset2 = dataset2['rain_s'].unique()
+all_values_dataset3 = dataset2['snow_s'].unique()
+all_values_dataset4 = dataset2['snow_on_ground_s'].unique()
 all_dates = combined_dataset['Date'].unique()
 
 # Create Dash app
@@ -94,7 +92,7 @@ def update_pie_chart_dataset1(selected_category, selected_date):
      Input('date-dropdown', 'value')]
 )
 def update_pie_chart_dataset2(selected_value, selected_date):
-    filtered_df = dataset2[(dataset2['Weather'] == selected_value) & (dataset2['Date'] == selected_date)]
+    filtered_df = dataset2[(dataset2['rain_s','snow_s','snow_on_ground_s'] == selected_value) & (dataset2['Date'] == selected_date)]
 
     pie_chart = px.pie(filtered_df, names='Weather', title=f'Pie Chart (Dataset 2) - Value: {selected_value}, Date: {selected_date}')
     return pie_chart
@@ -128,12 +126,3 @@ def update_scatter_plot(selected_category, selected_value, selected_date):
 # Run the app
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
-
-
-
-
-
-
-
