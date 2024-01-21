@@ -1,3 +1,4 @@
+
 # import dash
 # from dash import dcc, html
 # from dash.dependencies import Input, Output
@@ -128,6 +129,7 @@ def update_scatter_plot(selected_category, selected_value, selected_date):
 # Run the app
 if __name__ == '__main__':
     app.run_server(debug=True)
+
 
 
 
