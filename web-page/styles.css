@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Place it behind other content */
+}
+
+#weather-animation {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#filter-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex; /* Use flexbox */
+    align-items: center;
+    justify-content: space-between; /* Align items with space between */
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line if needed */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+select {
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    margin-right: 10px; /* Add margin between the dropdowns and the button */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+}
+
+select:hover {
+    border-color: #555;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    margin-top: 10px; /* Add margin above the button */
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#chart-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
