@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime and Weather Data Visualization</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="background-container">
+    <div id="weather-animation"></div>
+</div>
+
+<div id="container">
+    <div id="filter-section">
+        <label for="crime-select">Select Crime:</label>
+        <select id="crime-select">
+            <option value="burglary">Burglary</option>
+            <option value="assault">Assault</option>
+            <option value="robbery">Robbery</option>
+            <!-- Add more crime options as needed -->
+        </select>
+
+        <label for="weather-select">Select Weather:</label>
+        <select id="weather-select">
+            <option value="sunny">Sunny</option>
+            <option value="rainy">Rainy</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="snowy">Snowy</option>
+            <!-- Add more weather options as needed -->
+        </select>
+
+        <button onclick="updateChart()">Update Chart</button>
+    </div>
+
+    <div id="chart-container">
+        <!-- Your chart will be rendered here -->
+    </div>
+</div>
+
+<!-- Link to your JavaScript file -->
+<script src="script.js"></script>
+</body>
+</html>
